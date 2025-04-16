@@ -37,3 +37,24 @@ def english_to_morse(
         Name of output file containing the translated Morse code. Please don't change
         it since it's also hard-coded in the tests file.
     """
+    with open(input_file, 'r', encoding='utf-8') as f:
+        text = f.read().upper()
+    # Each word should be on its own line (words separated by space in original)
+    text = text.replace(' ', '\n')  
+    # Create a translation table from single characters to Morse strings
+    table = str.maketrans({k: v  for k, v in MORSE_CODE.items()})
+
+    # Translate the text
+    morse_text = text.translate(table)
+
+    # Each word should be on its own line (words separated by space in original)
+    #morse_text = morse_text.replace('  ', '\n')  # double space = original space between words
+
+    with open(output_file, 'w', encoding='utf-8') as f:
+        f.write(morse_text.strip())
+    return morse_text.strip()
+
+#run the function to create the output file
+if __name__ == "__main__":
+    english_to_morse()
+    print("Morse code translation complete. Check the output file.")
