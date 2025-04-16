@@ -104,3 +104,14 @@ def meetup(agent_listing: tuple) -> list:
         print(e)
 
     return updated_listing
+
+#as was required in the general submission instructions
+if __name__ == "__main__":
+    example_input = (
+        Agent("A", Condition.CURE),
+        Agent("B", Condition.SICK),
+        ...
+    )
+    result = meetup(example_input)
+    print(result)
+

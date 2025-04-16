@@ -54,7 +54,9 @@ def english_to_morse(
         f.write(morse_text.strip())
     return morse_text.strip()
 
-#run the function to create the output file
+#running the function to create the output file-
+#added the __name__ == "__main__" to allow for testing the function in isolation
+#and also as was required in the general submission instructions
 if __name__ == "__main__":
     english_to_morse()
     print("Morse code translation complete. Check the output file.")
